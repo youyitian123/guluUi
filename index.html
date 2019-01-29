@@ -53,16 +53,10 @@
             输入框
         -->
         <div class="box">
-            <g-input value="张三"></g-input>
-            <g-input value="李四" disabled></g-input>
-            <g-input value="李四" readonly></g-input>
+            <g-input v-model="message"></g-input>
+            <g-input v-model="message" error="密码不能少于6位数"></g-input>
         </div>
-        <div class="box">
-            <g-input value="12345" error="密码不能少于6位数"></g-input>
-        </div>
-
-    </div>
-    <script src="./src/app.js"></script>
+        <script src="./src/app.js"></script>
 </body>
 
 </html>
