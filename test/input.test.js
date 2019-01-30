@@ -87,7 +87,7 @@ describe('事件', () => {
             )
             let inputElement = vm.$el.querySelector('input')
             inputElement.dispatchEvent(event)
-            expect(callback).to.have.been.calledWith('h1')
+            expect(callback).to.have.been.calledWith('hi')
         })
     })
 })
