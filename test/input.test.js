@@ -51,7 +51,6 @@ describe('props', () => {
     })
 
     it('error', () => {
-
         vm = new Constructor({
             propsData: {
                 error: '错误'
@@ -88,7 +87,7 @@ describe('事件', () => {
             )
             let inputElement = vm.$el.querySelector('input')
             inputElement.dispatchEvent(event)
-            expect(callback).to.have.been.calledWith('hi')
+            expect(callback).to.have.been.calledWith('h1')
         })
     })
 })
