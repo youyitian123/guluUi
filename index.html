@@ -52,6 +52,8 @@
         <!--
             输入框
         -->
+
+
         <div class="box">
             <g-input v-model="message"></g-input>
             <g-input v-model="message" error="密码不能少于6位数"></g-input>
@@ -60,22 +62,23 @@
         <!--
             网格
         -->
-        <g-row>
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-        </g-row>
-
-        <g-row>
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-            <g-col>3</g-col>
-        </g-row>
-        <g-row>
-            <g-col span="2">1</g-col>
-            <g-col span="22">11</g-col>
-        </g-row>
-
-
+        <div style="  border: 1px solid red;">
+            <g-row gutter="20">
+                <g-col span="2">2</g-col>
+                <g-col span="22" offset="2">11</g-col>
+            </g-row>
+            <g-row gutter="20">
+                <g-col>1</g-col>
+                <g-col>2</g-col>
+                <g-col>3</g-col>
+            </g-row>
+            <g-row gutter="20">
+                <g-col>1</g-col>
+                <g-col>2</g-col>
+                <g-col>3</g-col>
+                <g-col>4</g-col>
+            </g-row>
+        </div>
     </div>
     <script src="./src/app.js"></script>
 </body>
