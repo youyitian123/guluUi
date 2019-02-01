@@ -7,7 +7,6 @@
 <style lang="scss" scoped>
 $class: col-;
 .col {
-  width: 50%;
   @for $n from 1 through 24 {
     &.#{$class}#{$n} {
       width: ($n/24) * 100%;
