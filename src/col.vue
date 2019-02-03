@@ -129,15 +129,26 @@ export default {
   computed: {
     colClass() {
       let { span, offset, phone, ipad, narrowPc, pc, widePc } = this;
-      console.log(span);
+      // console.log(span);
+      let x = (obj, str) => {
+        if (!obj) {
+          return [];
+        }
+        let array = [];
+        if (obj.span) {
+          array.push(`col-${str}${obj.span}`);
+        }
+        if (obj.offset) {
+          array.push(`col-${str}${obj.offset}`);
+        }
+        return array;
+      };
       return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
-        ...(phone ? [`col-phone-${phone.span}`] : []),
-        ...(ipad ? [`col-ipad-${ipad.span}`] : []),
-        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
-        ...(pc ? [`col-pc-${pc.span}`] : []),
-        ...(widePc ? [`col-wide-pc-${widePc.span}`] : [])
+        ...x({ span, offset }),
+        ...x(ipad, "ipad-"),
+        ...x(span, "narrow-pc-"),
+        ...x(span, "pc-"),
+        ...x(span, "wide-pc")
       ];
     },
     colStyle() {
