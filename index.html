@@ -71,7 +71,7 @@
             网格
         -->
         <!-- <div style="  border: 1px solid red;"> -->
-        <g-row>
+        <g-row gutter="10">
             <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
                 <div class="demo"></div>
             </g-col>
@@ -84,9 +84,13 @@
             <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
                 <div class="demo"></div>
             </g-col>
-            <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
-                <div class="demo"></div>
+            <g-col span="24" :ipad='{span:12}' :wide-pc="{span:10}">
+                <div class="demo">123</div>
             </g-col>
+        </g-row>
+
+        <g-row gutter="10">
+
         </g-row>
         <!-- </div> -->
     </div>

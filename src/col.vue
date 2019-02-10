@@ -6,13 +6,13 @@
 
 <style lang="scss" scoped>
 .col {
-  $class-prefix: col-;
+  $class-prefix: col-phone-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
       width: ($n / 24) * 100%;
     }
   }
-  $class-prefix: offset-;
+  $class-prefix: offset-phone-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
       margin-left: ($n / 24) * 100%;
@@ -128,8 +128,8 @@ export default {
   },
   computed: {
     colClass() {
-      let { span, offset, phone, ipad, narrowPc, pc, widePc } = this;
-      // console.log(span);
+      let { span, offset, ipad, narrowPc, phone, pc, widePc } = this;
+
       let x = (obj, str) => {
         if (!obj) {
           return [];
@@ -139,16 +139,16 @@ export default {
           array.push(`col-${str}${obj.span}`);
         }
         if (obj.offset) {
-          array.push(`col-${str}${obj.offset}`);
+          array.push(`offset-${str}${obj.offset}`);
         }
         return array;
       };
       return [
-        ...x({ span, offset }),
+        ...x({ span, offset }, "phone-"),
         ...x(ipad, "ipad-"),
-        ...x(span, "narrow-pc-"),
-        ...x(span, "pc-"),
-        ...x(span, "wide-pc")
+        ...x(narrowPc, "narrow-pc-"),
+        ...x(pc, "pc-"),
+        ...x(widePc, "wide-pc-")
       ];
     },
     colStyle() {
