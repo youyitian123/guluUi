@@ -26,73 +26,42 @@
     }
 
     #app {
-        margin: 20px;
+        /* margin: 20px; */
     }
 
     body {
         font-size: var(--font-size);
     }
-
-    .box {
-        margin: 20px;
-    }
 </style>
 
 <style>
-    .demo {
-        background: #ddd;
-        border: 1px solid #666;
+    .sider {
+        background: #333;
+        width: 200px;
+    }
+
+    .header {
+        background: #999;
         height: 100px;
+    }
+
+    .footer {
+        background: #ccc;
+        height: 50px;
     }
 </style>
 
 <body>
     <div id="app">
-        <!--
-            按钮
-        -->
-        <div class="box">
-            <g-button>按钮</g-button>
-            <g-button icon="setting" icon-position="left">设置</g-button>
-            <g-button icon="setting" :loading='loading1' @click="loading1 = !loading1">加载</g-button>
-        </div>
+        <g-layout style="height:100vw;">
+            <g-sider class="demo">sider</g-sider>
+            <g-layout>
+                <g-header class="demo">header</g-header>
+                <g-content class="demo">content</g-content>
+                <g-footer class="demo">footer</g-footer>
 
-        <!--
-            输入框
-        -->
-
-
-        <div class="box">
-            <g-input v-model="message"></g-input>
-            <g-input v-model="message" error="密码不能少于6位数"></g-input>
-        </div>
-
-        <!--
-            网格
-        -->
-        <!-- <div style="  border: 1px solid red;"> -->
-        <g-row gutter="10">
-            <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
-                <div class="demo"></div>
-            </g-col>
-            <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
-                <div class="demo"></div>
-            </g-col>
-            <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
-                <div class="demo"></div>
-            </g-col>
-            <g-col span="24" :ipad='{span:12}' :narrow-pc="{span:8}">
-                <div class="demo"></div>
-            </g-col>
-            <g-col span="24" :ipad='{span:12}' :wide-pc="{span:10}">
-                <div class="demo">123</div>
-            </g-col>
-        </g-row>
-
-        <g-row gutter="10">
-
-        </g-row>
-        <!-- </div> -->
+            </g-layout>
+        </g-layout>
     </div>
     <script src="./src/app.js"></script>
 </body>

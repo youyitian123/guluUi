@@ -10,7 +10,6 @@ describe('Row', () => {
     it('存在.', () => {
         expect(Row).to.exist
     })
-
     it('可以设置gutter', (done) => {
         Vue.component('g-row', Row)
         Vue.component('g-col', Col)
@@ -28,8 +27,6 @@ describe('Row', () => {
             el: div
         })
 
-
-      
         setTimeout(() => {
             const row = vm.$el.querySelector('.row')
             expect(getComputedStyle(row).marginLeft).to.eq('-10px')
