@@ -9,6 +9,12 @@ import header from './header'
 import footer from './footer'
 import sider from './sider'
 import content from './content'
+import toast from './toast'
+import Plugin from './plugin'
+
+
+Vue.use(Plugin)
+
 
 
 
@@ -23,6 +29,9 @@ Vue.component('g-header', header)
 Vue.component('g-footer', footer)
 Vue.component('g-sider', sider)
 Vue.component('g-content', content)
+Vue.component('g-toast', toast)
+
+
 
 
 
@@ -31,5 +40,10 @@ new Vue({
     data: {
         loading1: true,
         message: 'value'
+    },
+    methods: {
+        showToast() {
+            this.$toast('我是信息')
+        }
     }
 })
