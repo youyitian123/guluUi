@@ -15,10 +15,6 @@ import Plugin from './plugin'
 
 Vue.use(Plugin)
 
-
-
-
-
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
 Vue.component('g-input', Input)
@@ -34,16 +30,23 @@ Vue.component('g-toast', toast)
 
 
 
-
 new Vue({
     el: '#app',
     data: {
         loading1: true,
         message: 'value'
     },
+    created() {
+        this.$toast('我是 message', {
+            closeButton: {
+                text: '知道了',
+                callback(toast) {
+                    toast.log()
+                }
+            }
+        })
+    },
     methods: {
-        showToast() {
-            this.$toast('我是信息')
-        }
+        showToast() {}
     }
 })
