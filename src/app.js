@@ -27,26 +27,25 @@ Vue.component('g-sider', sider)
 Vue.component('g-content', content)
 Vue.component('g-toast', toast)
 
-
-
-
 new Vue({
     el: '#app',
     data: {
         loading1: true,
         message: 'value'
     },
-    created() {
-        this.$toast('我是 message', {
-            closeButton: {
-                text: '知道了',
-                callback(toast) {
-                    toast.log()
-                }
-            }
-        })
-    },
+    created() {},
     methods: {
-        showToast() {}
+        showToast() {
+            this.$toast('我是 message', {
+                autoClose: false,
+                position: 'midele',
+                closeButton: {
+                    text: '知道了',
+                    callback(toast) {
+                        console.log('测试')
+                    }
+                }
+            })
+        }
     }
 })

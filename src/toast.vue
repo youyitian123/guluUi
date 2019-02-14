@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" ref="toast">
+  <div class="toast" ref="toast" :class="toastClasses">
     <slot v-if="!ebableHtml"></slot>
     <div v-else v-html="$slots.default[0]"></div>
     <div class="line" ref="line"></div>
@@ -28,9 +28,23 @@ export default {
         };
       }
     },
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["top", "bottom", "midele"].indexOf(value) >= 0;
+      }
+    },
     ebableHtml: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    toastClasses() {
+      return {
+        [`position-${this.position}`]: true
+      };
     }
   },
   mounted() {
@@ -80,7 +94,6 @@ $toast-min-height: 40px;
   display: flex;
   align-items: center;
   padding: 0 16px;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.74);
@@ -89,10 +102,21 @@ $toast-min-height: 40px;
   .line {
     border-left: solid 1px #666;
     margin-left: 16px;
+    height: 100%;
   }
   .close {
     flex-shrink: 0;
     padding-left: 16px;
+  }
+  &.position-top {
+    top: 0;
+  }
+  &.position-bottom {
+    bottom: 0;
+  }
+  &.position-midele {
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>
