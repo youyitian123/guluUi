@@ -1,7 +1,7 @@
 <template>
-  <div class="wapper" :class="toastClasses">
+  <div class="wrapper" :class="toastClasses">
     <div class="toast" ref="toast" :class="toastClasses">
-      <slot v-if="!ebableHtml"></slot>
+      <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
       <div class="line" ref="line"></div>
       <span v-if="close" class="close" @click="onClickClose()">{{closeButton.text}}</span>
@@ -14,12 +14,11 @@ export default {
   name: "GuluToast",
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 5
+      type: [Boolean, Number],
+      default: 5,
+      validator(value) {
+        return value === false || typeof value === "number";
+      }
     },
     closeButton: {
       type: Object,
@@ -37,7 +36,7 @@ export default {
         return ["top", "bottom", "midele"].indexOf(value) >= 0;
       }
     },
-    ebableHtml: {
+    enableHtml: {
       type: Boolean,
       default: false
     }
@@ -58,7 +57,7 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
     updateStyles() {
@@ -117,7 +116,7 @@ $toast-min-height: 40px;
     opacity: 1;
   }
 }
-.wapper {
+.wrapper {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -134,7 +133,6 @@ $toast-min-height: 40px;
   }
 }
 .toast {
-  
   &.position-top {
     animation: slide-down 1s;
   }
