@@ -40,11 +40,14 @@
         <g-tabs :selected.sync="selectedTab">
             <g-tabs-head>
                 <template slot="actions"><button>123</button></template>
-                <g-tabs-item name="finance" disabled>
+                <g-tabs-item name="finance" >
                     财经
                 </g-tabs-item>
                 <g-tabs-item name="sports">
                     体育
+                </g-tabs-item>
+                <g-tabs-item name="girl" disabled>
+                    美女
                 </g-tabs-item>
             </g-tabs-head>
             <g-tabs-body>
@@ -53,6 +56,9 @@
                 </g-tabs-pane>
                 <g-tabs-pane name="sports">
                     体育相关资讯
+                </g-tabs-pane>
+                <g-tabs-pane name="girl">
+                    美女相关资讯
                 </g-tabs-pane>
                 </g-tavs-body>
         </g-tabs>

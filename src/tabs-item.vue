@@ -26,7 +26,8 @@ export default {
   computed: {
     classes() {
       return {
-        active: this.active
+        active: this.active,
+        disabled: this.disabled
       };
     }
   },
@@ -37,6 +38,9 @@ export default {
   },
   methods: {
     xxx() {
+      if (this.disabled) {
+        return;
+      }
       this.eventBus.$emit("update:selected", this.name, this);
     }
   }
@@ -54,6 +58,9 @@ export default {
   align-items: center;
   &.active {
     color: blue;
+  }
+  &.disabled {
+    color: gray;
   }
 }
 </style>
