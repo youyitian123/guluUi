@@ -26,11 +26,17 @@ export default {
 $tab-height: 40px;
 
 .tabs-header {
+  border-bottom: 1px solid #ddd;
+
   height: $tab-height;
   position: relative;
   display: flex;
   > .actions-wrapper {
     margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
   }
 
   > .line {

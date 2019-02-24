@@ -53,7 +53,6 @@ export default {
   justify-content: flex-start;
   align-items: center;
   &.active {
-    background: red;
     color: blue;
   }
 }
