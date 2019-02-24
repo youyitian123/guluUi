@@ -15,7 +15,6 @@ describe('Toast', () => {
     })
 })
 
-
 describe('props', function () {
     it('接受 autoClose', (done) => {
         let div = document.createElement('div')
@@ -75,5 +74,4 @@ describe('props', function () {
         let strong = vm.$el.querySelector('#test')
         expect(strong).to.exist
     })
-
 })
