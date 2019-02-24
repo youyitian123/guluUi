@@ -13,7 +13,7 @@ import toast from './toast'
 import Plugin from './plugin'
 
 import Tabs from './tabs'
-import tabsHeader from './tabs-header'
+import tabsHead from './tabs-head'
 import tabsItem from './tabs-item'
 import tabsBody from './tabs-body'
 import tabsPane from './tabs-pane'
@@ -35,7 +35,7 @@ Vue.component('g-content', content)
 Vue.component('g-toast', toast)
 
 Vue.component('g-tabs', Tabs)
-Vue.component('g-tabs-header', tabsHeader)
+Vue.component('g-tabs-head', tabsHead)
 Vue.component('g-tabs-item', tabsItem)
 Vue.component('g-tabs-body', tabsBody)
 Vue.component('g-tabs-pane', tabsPane)
@@ -44,7 +44,7 @@ Vue.component('g-tabs-pane', tabsPane)
 new Vue({
     el: '#app',
     data: {
-        selectedTab:"sports"
+        selectedTab:"finance"
     },
     created() {},
     methods: {

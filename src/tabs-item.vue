@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "GuluTabsItem",
   inject: ["eventBus"],
   props: {
     disabled: {
@@ -36,7 +37,7 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit("update:selected", this.name);
+      this.eventBus.$emit("update:selected", this.name, this);
     }
   }
 };
@@ -44,11 +45,16 @@ export default {
 
 <style lang="scss" scoped>
 .tabs-item {
+  cursor: pointer;
   flex-shrink: 0;
   padding: 0 1em;
-
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   &.active {
-    color: red;
+    background: red;
+    color: blue;
   }
 }
 </style>
