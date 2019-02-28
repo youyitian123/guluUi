@@ -27,7 +27,7 @@ export default {
   },
   mounted() {
     this.$children.forEach(vm => {
-      if (vm.$options.name === "GuluSider") {
+      if (vm.$options.name === "guluSider") {
         this.layoutClass.hasSider = true;
       }
     });
