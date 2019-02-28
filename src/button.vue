@@ -65,6 +65,7 @@
 <script>
 import Icon from "./icon";
 export default {
+  name:"guluButton",
   components: {
     "g-icon": Icon
   },

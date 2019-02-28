@@ -5,8 +5,13 @@
 </template>
 
 <style lang="scss" scoped>
-.footer {
-}
 </style>
+
+<script>
+export default {
+  name:"guluFooter"
+}
+</script>
+
 
 

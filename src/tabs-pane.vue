@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name:"GuluTabsPane",
+  name:"guluTabsPane",
   inject: ["eventBus"],
   props: {
     name: {

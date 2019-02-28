@@ -5,9 +5,13 @@
 </template>
 
 <style lang="scss" scoped>
-.header {
-    
-}
+
 </style>
+<script>
+export default {
+  name:"guluHeader",
+}
+</script>
+
 
 

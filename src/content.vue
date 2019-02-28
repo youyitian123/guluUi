@@ -10,4 +10,11 @@
 }
 </style>
 
+<script>
+export default {
+  name:"guluContent"
+}
+</script>
+
+
 
