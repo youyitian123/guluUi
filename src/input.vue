@@ -17,6 +17,7 @@
 import Icon from "./icon";
 
 export default {
+  name:"guluInput",
   components: {
     Icon
   },

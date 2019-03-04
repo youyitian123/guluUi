@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "GuluTabsHead",
+  name: "guluTabsHead",
   inject: ["eventBus"],
   mounted() {
     this.eventBus.$on("update:selected", (item, vm) => {

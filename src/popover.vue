@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name:"guluPopover",
   data() {
     return {
       visible: false

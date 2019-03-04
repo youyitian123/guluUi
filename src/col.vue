@@ -92,6 +92,7 @@ let validator = value => {
 };
 
 export default {
+  name:"guluCol",
   props: {
     span: {
       type: [Number, String]

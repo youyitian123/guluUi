@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "GuluTabsItem",
+  name: "guluTabsItem",
   inject: ["eventBus"],
   props: {
     disabled: {

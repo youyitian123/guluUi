@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name:"guluRow",
   props: {
     gutter: {
       type: [Number, String],

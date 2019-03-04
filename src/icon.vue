@@ -7,6 +7,7 @@
 import "./svg";
 
 export default {
+  name:"guluIcon",
   props: ["name"]
 };
 </script>

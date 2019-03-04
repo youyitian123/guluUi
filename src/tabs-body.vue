@@ -6,12 +6,11 @@
 
 <script>
 export default {
+  name:"guluTabsBody",
   inject: ["eventBus"]
 };
 </script>
 
 <style lang="scss" scoped>
-.tabs-body {
-}
 </style>
 
