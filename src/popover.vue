@@ -1,7 +1,12 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
-    <div ref="contentWrapper" class="content-wrapper" v-show="visible">
-      <slot name="content"></slot>
+  <div class="popover" ref="popover">
+    <div
+      ref="contentWrapper"
+      class="content-wrapper"
+      v-show="visible"
+      :class="{[`position-${position}`]:true}"
+    >
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="triggerWrapper" style="display: inline-block">
       <slot></slot>
@@ -11,23 +16,88 @@
 
 <script>
 export default {
-  name:"guluPopover",
+  name: "guluPopover",
   data() {
     return {
       visible: false
     };
   },
+  mounted() {
+    if (this.trigger === "click") {
+      this.$refs.popover.addEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.addEventListener("mouseenter", this.open);
+      this.$refs.popover.addEventListener("mouseleave", this.close);
+    }
+  },
+  computed: {
+    openEvent() {
+      if (this.trigger === "click") {
+        return "click";
+      } else {
+        return "mouseenter";
+      }
+    },
+    closeEvent() {
+      if (this.trigger === "click") {
+        return "click";
+      } else {
+        return "mouseleave";
+      }
+    }
+  },
+  destroyed() {
+    if (this.trigger === "click") {
+      this.$refs.popover.removeEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover.removeEventListener("mouseleave", this.close);
+    }
+  },
+  props: {
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["click", "hover"].indexOf(value) >= 0;
+      }
+    }
+  },
   methods: {
     positionContent() {
-      document.body.appendChild(this.$refs.contentWrapper);
-      let {
+      const { contentWrapper, triggerWrapper } = this.$refs;
+      (this.container || document.body).appendChild(contentWrapper);
+      const {
         width,
         height,
         top,
         left
-      } = this.$refs.triggerWrapper.getBoundingClientRect();
-      this.$refs.contentWrapper.style.left = left + scrollX + "px";
-      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+      } = triggerWrapper.getBoundingClientRect();
+      const { height: height2 } = contentWrapper.getBoundingClientRect();
+      let positions = {
+        top: { top: top + window.scrollY, left: left + window.scrollX },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     onClickDocument(e) {
       if (
@@ -56,8 +126,8 @@ export default {
     },
     close() {
       this.visible = false;
+      this.$emit("close");
       document.removeEventListener("click", this.onClickDocument);
-      // document.removeEventListener("click", this.onClickDocument);
     },
 
     onClick(event) {
@@ -89,8 +159,7 @@ export default {
   border: 1px solid #333;
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
   background: white;
-  transform: translateY(-100%);
-  margin-top: -10px;
+
   &::before,
   &::after {
     content: "";
@@ -101,15 +170,69 @@ export default {
     position: absolute;
   }
 
-  &::before {
-    border-top-color: #333;
-    top: 101%;
-    left: 10px;
+  &.position-top {
+    transform: translateY(-100%);
+    margin-top: -10px;
+    &::before {
+      border-top-color: #333;
+      top: 101%;
+      left: 10px;
+    }
+    &::after {
+      border-top-color: white;
+      left: 10px;
+      top: calc(100% - 0.6px);
+    }
   }
-  &::after {
-    border-top-color: white;
-    left: 10px;
-    top: calc(100% - 1px);
+  &.position-bottom {
+    margin-top: 10px;
+    &::before {
+      border-bottom-color: #333;
+      bottom: 101%;
+      left: 10px;
+    }
+    &::after {
+      border-bottom-color: white;
+      left: 10px;
+      bottom: calc(100% - 0.6px);
+    }
+  }
+  &.position-left {
+    transform: translateX(-100%);
+    margin-left: -10px;
+    &::before,
+    &::after {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    &::before {
+      border-left-color: black;
+      border-right: none;
+      left: 100%;
+    }
+    &::after {
+      border-left-color: white;
+      border-right: none;
+      left: calc(100% - 0.9px);
+    }
+  }
+  &.position-right {
+    margin-left: 10px;
+    &::before,
+    &::after {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    &::before {
+      border-right-color: black;
+      border-left: none;
+      right: 100%;
+    }
+    &::after {
+      border-right-color: white;
+      border-left: none;
+      right: calc(100% - 0.9px);
+    }
   }
 }
 </style>
