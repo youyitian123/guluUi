@@ -174,11 +174,13 @@ export default {
     transform: translateY(-100%);
     margin-top: -10px;
     &::before {
+      border-bottom: none;
       border-top-color: #333;
       top: 101%;
       left: 10px;
     }
     &::after {
+      border-bottom: none;
       border-top-color: white;
       left: 10px;
       top: calc(100% - 0.6px);
@@ -187,11 +189,13 @@ export default {
   &.position-bottom {
     margin-top: 10px;
     &::before {
+      border-top: none;
       border-bottom-color: #333;
       bottom: 101%;
       left: 10px;
     }
     &::after {
+      border-top: none;
       border-bottom-color: white;
       left: 10px;
       bottom: calc(100% - 0.6px);
