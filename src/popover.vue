@@ -17,6 +17,23 @@
 <script>
 export default {
   name: "guluPopover",
+
+  props: {
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["click", "hover"].indexOf(value) >= 0;
+      }
+    }
+  },
   data() {
     return {
       visible: false
@@ -54,22 +71,7 @@ export default {
       this.$refs.popover.removeEventListener("mouseleave", this.close);
     }
   },
-  props: {
-    position: {
-      type: String,
-      default: "top",
-      validator(value) {
-        return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
-      }
-    },
-    trigger: {
-      type: String,
-      default: "click",
-      validator(value) {
-        return ["click", "hover"].indexOf(value) >= 0;
-      }
-    }
-  },
+
   methods: {
     positionContent() {
       const { contentWrapper, triggerWrapper } = this.$refs;

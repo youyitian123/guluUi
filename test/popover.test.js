@@ -1,5 +1,8 @@
 const expect = chai.expect;
 import Vue from 'vue'
+import {
+    mount
+} from '@vue/test-utils'
 import Popover from '../src/popover'
 
 Vue.config.productionTip = false
@@ -35,7 +38,7 @@ describe('Popover', () => {
             done()
         })
     })
-    xit('可以设置 trigger', (done) => {
+    it('可以设置 trigger', (done) => {
         Vue.component('g-popover', Popover)
         const div = document.createElement('div')
         document.body.appendChild(div)
@@ -61,7 +64,5 @@ describe('Popover', () => {
                 done()
             })
         }, 200)
-
     })
-
 })
