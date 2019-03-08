@@ -16,6 +16,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    name: {
+      type: String,
+      required: true
     }
   },
   data() {
@@ -25,9 +29,9 @@ export default {
   },
   mounted() {
     this.eventBus &&
-      this.eventBus.$on("update:selected", vm => {
-        if (vm !== this) {
-          this.close();
+      this.eventBus.$on("update:selected", name => {
+        if (name === this.name) {
+          this.open = true;
         }
       });
   },
@@ -37,7 +41,7 @@ export default {
         this.open = false;
       } else {
         this.open = true;
-        this.eventBus && this.eventBus.$emit("update:selected", this);
+        this.eventBus && this.eventBus.$emit("update:selected", this.name);
       }
     },
     close() {
