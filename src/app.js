@@ -19,7 +19,7 @@ import tabsPane from './tabs-pane'
 import Popover from './popover'
 import Collapse from './collapse'
 import collapseItem from './collapse-item'
- 
+
 
 Vue.use(Plugin)
 
@@ -48,7 +48,7 @@ Vue.component('g-collapse-item', collapseItem)
 new Vue({
     el: '#app',
     data: {
-        selectedTab:"finance"
+        selectedTab: ['1', '2']
     },
     created() {},
     methods: {
