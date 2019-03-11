@@ -34,14 +34,14 @@
 
 
 <body>
-    <div id="app" style="padding:100px;">
-        <g-collapse :selected.sync="selectedTab" single>
-            <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
-            <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
-            <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
-        </g-collapse>
+    <div id="app">
+        <g-button>默认按钮</g-button>
+        <g-button icon="setting" iconPosition="left">默认按钮</g-button>
+        <g-button :loading="true">默认按钮</g-button>
+        <g-button disabled>默认按钮</g-button>
     </div>
     <script src="./src/app.js"></script>
+
 </body>
 
 </html>

@@ -3,12 +3,13 @@
     <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
     <div class="content">
-      <slot><slot/>
+      <slot/>
     </div>
   </button>
 </template>
 
 <style lang="scss" scoped>
+@import "var";
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -18,35 +19,34 @@
   }
 }
 .g-button {
-  font-size: var(--font-size);
-  height: var(--button-height);
+  font-size: $font-size;
+  height: $button-height;
   padding: 0 1em;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  background: var(--button-bg);
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background: $button-bg;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: $border-color-hover;
   }
   &:active {
-    background-color: var(--button-active-bg);
+    background-color: $button-active-bg;
   }
   &:focus {
     outline: none;
   }
-  > .content {
+  > .g-button-content {
     order: 2;
   }
   > .icon {
     order: 1;
     margin-right: 0.1em;
   }
-
   &.icon-right {
-    > .content {
+    > .g-button-content {
       order: 1;
     }
     > .icon {
@@ -59,13 +59,17 @@
     animation: spin 2s infinite linear;
   }
 }
+
+.content {
+  padding: 0;
+}
 </style>
 
 
 <script>
 import Icon from "./icon";
 export default {
-  name:"guluButton",
+  name: "guluButton",
   components: {
     "g-icon": Icon
   },
