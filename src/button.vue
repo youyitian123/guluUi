@@ -26,21 +26,19 @@ export default {
       type: Boolean,
       default: false
     },
-    plain: {
-      type: Boolean,
-      default: false
-    },
-    round: {
-      type: Boolean,
-      default: false
-    },
     type: {
       type: String,
       default: "default",
       validator(value) {
         return (
-          ["primary", "success", "info", "warning", "danger"].indexOf(value) >=
-          0
+          [
+            "default",
+            "primary",
+            "success",
+            "info",
+            "warning",
+            "danger"
+          ].indexOf(value) >= 0
         );
       }
     },
@@ -86,6 +84,9 @@ export default {
   }
   &:focus {
     outline: none;
+  }
+  &.is-round {
+    border-radius: 15px;
   }
   &.button-primary {
     color: white;
