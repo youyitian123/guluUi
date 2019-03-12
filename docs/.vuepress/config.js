@@ -1,4 +1,5 @@
 module.exports = {
+    base:"/youyitian-gulu/",
     title: "youyitian-gulu",
     themeConfig: {
         nav: [
@@ -13,7 +14,8 @@ module.exports = {
             {
                 title: '组件',
                 children: [
-                    '/components/button'
+                    '/components/button',
+                    '/components/input'
                 ]
             }
         ],

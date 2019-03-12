@@ -1,12 +1,61 @@
 <template>
-  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+  <button
+    class="g-button"
+    :class="{[`icon-${iconPosition}`]: true, [`button-${type}`]:true}"
+    @click="$emit('click')"
+  >
     <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
-    <div class="content">
+    <div class="content-wrapper">
       <slot/>
     </div>
   </button>
 </template>
+
+
+<script>
+import Icon from "./icon";
+export default {
+  name: "guluButton",
+  components: {
+    "g-icon": Icon
+  },
+  props: {
+    icon: {},
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    plain: {
+      type: Boolean,
+      default: false
+    },
+    round: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      default: "default",
+      validator(value) {
+        return (
+          ["primary", "success", "info", "warning", "danger"].indexOf(value) >=
+          0
+        );
+      }
+    },
+    iconPosition: {
+      type: String,
+      default: "left",
+      validator(value) {
+        return value === "left" || value === "right";
+      }
+    }
+  }
+};
+</script>
+
+
 
 <style lang="scss" scoped>
 @import "var";
@@ -38,6 +87,46 @@
   &:focus {
     outline: none;
   }
+  &.button-primary {
+    color: white;
+    background: #3498db;
+    border: none;
+  }
+  &.button-primary:hover {
+    background: #5dade2;
+  }
+  &.button-success {
+    border: none;
+    color: white;
+    background: #2ecc71;
+  }
+  &.button-success:hover {
+    background: #58d68d;
+  }
+  &.button-info {
+    border: none;
+    color: white;
+    background: #909497;
+  }
+  &.button-info:hover {
+    background: #aab7b8;
+  }
+  &.button-warning {
+    border: none;
+    color: white;
+    background: #f4d03f;
+  }
+  &.button-warning:hover {
+    background: #f7dc6f;
+  }
+  &.button-danger {
+    border: none;
+    color: white;
+    background: #e74c3c;
+  }
+  &.button-danger:hover {
+    background: #ec7063;
+  }
   > .g-button-content {
     order: 2;
   }
@@ -59,34 +148,6 @@
     animation: spin 2s infinite linear;
   }
 }
-
-.content {
-  padding: 0;
-}
 </style>
 
-
-<script>
-import Icon from "./icon";
-export default {
-  name: "guluButton",
-  components: {
-    "g-icon": Icon
-  },
-  props: {
-    icon: {},
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    iconPosition: {
-      type: String,
-      default: "left",
-      validator(value) {
-        return value === "left" || value === "right";
-      }
-    }
-  }
-};
-</script>
 
