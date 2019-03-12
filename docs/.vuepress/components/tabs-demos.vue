@@ -1,5 +1,9 @@
 <template>
   <div>
+    <h2>简单用法</h2>
+    <p>
+      <strong>预览</strong>
+    </p>
     <g-tabs :selected.sync="selectedTab">
       <g-tabs-head>
         <g-tabs-item name="1">item1</g-tabs-item>

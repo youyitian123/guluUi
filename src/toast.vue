@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper" :class="toastClasses">
-    <div class="toast" ref="toast" :class="toastClasses">
+  <div class="toast-wrapper" :class="toastClasses">
+    <div class="toast" ref="toast" :class="[toastClasses,`g-${type}`]">
       <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
       <div class="line" ref="line"></div>
@@ -13,6 +13,13 @@
 export default {
   name: "guluToast",
   props: {
+    type: {
+      type: String,
+      default: "default",
+      validator(value) {
+        return ["default", "success", "warning", "error"].indexOf(value) >= 0;
+      }
+    },
     autoClose: {
       type: [Boolean, Number],
       default: 5,
@@ -116,11 +123,11 @@ $toast-min-height: 40px;
     opacity: 1;
   }
 }
-.wrapper {
+.toast-wrapper {
+  z-index: 50;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-
   &.position-top {
     top: 0;
   }
@@ -150,14 +157,46 @@ $toast-min-height: 40px;
   display: flex;
   align-items: center;
   padding: 0 16px;
-  background: rgba(0, 0, 0, 0.74);
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-
+  border: 1px solid;
   .line {
-    border-left: solid 1px #666;
     margin-left: 16px;
     height: 100%;
   }
+
+  &.g-default {
+    color: #909399;
+    background-color: #d6eaf8;
+    border-color:#AED6F1;
+    .line {
+      border-left: solid 1px #909399;
+    }
+  }
+  &.g-success {
+    background-color: #f0f9eb;
+    border-color: #e1f3d8;
+    color: #67c23a;
+    .line {
+      border-left: solid 1px #67c23a;
+    }
+  }
+
+  &.g-warning {
+    color: #e6a23c;
+    background-color: #fdf6ec;
+    border-color: #faecd8;
+    .line {
+      border-left: solid 1px #e6a23c;
+    }
+  }
+  &.g-error {
+    color: #f56c6c;
+    background-color: #fef0f0;
+    border-color: #fde2e2;
+    .line {
+      border-left: solid 1px #f56c6c;
+    }
+  }
+
   .close {
     flex-shrink: 0;
     padding-left: 16px;

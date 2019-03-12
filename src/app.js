@@ -55,7 +55,8 @@ new Vue({
         showToast() {
             this.$toast('我是 message', {
                 autoClose: false,
-                position: 'midele',
+                position: 'top',
+                // type:'error',
                 closeButton: {
                     text: '知道了',
                     callback(toast) {
