@@ -1,12 +1,12 @@
 <template>
   <button
     class="g-button"
-    :class="{[`icon-${iconPosition}`]: true, [`button-${type}`]:true}"
+    :class="{[`icon-${iconposition}`]: true, [`button-${type}`]:true}"
     @click="$emit('click')"
   >
     <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
-    <div class="content-wrapper">
+    <div class="g-button-content">
       <slot/>
     </div>
   </button>
@@ -42,11 +42,11 @@ export default {
         );
       }
     },
-    iconPosition: {
+    iconposition: {
       type: String,
       default: "left",
       validator(value) {
-        return value === "left" || value === "right";
+        return ["left", "right"].indexOf(value) >= 0;
       }
     }
   }
@@ -128,13 +128,16 @@ export default {
   &.button-danger:hover {
     background: #ec7063;
   }
-  > .g-button-content {
-    order: 2;
+  &.icon-left {
+    > .g-button-content {
+      order: 2;
+    }
+    > .icon {
+      order: 1;
+      margin-right: 0.1em;
+    }
   }
-  > .icon {
-    order: 1;
-    margin-right: 0.1em;
-  }
+
   &.icon-right {
     > .g-button-content {
       order: 1;
