@@ -60,7 +60,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   &.active {
-    color: blue;
+    color: #3498DB  ;
   }
   &.disabled {
     color: gray;

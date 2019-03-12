@@ -48,9 +48,9 @@ Vue.component('g-collapse-item', collapseItem)
 new Vue({
     el: '#app',
     data: {
-        selectedTab: ['1', '2']
+        selectedTab: '1'
     },
-    created() {},
+    created() { },
     methods: {
         showToast() {
             this.$toast('我是 message', {

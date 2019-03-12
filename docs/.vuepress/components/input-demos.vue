@@ -9,21 +9,20 @@
     <g-input value="中文" readonly></g-input>
     <p></p>
     <g-input value="密码" error="密码错误"></g-input>
-
     <p>
       <strong>代码</strong>
     </p>
     <pre><code>{{content}}</code></pre>
   </div>
 </template>
-	<script>
+
+<script>
 import GInput from "../../../src/input";
 export default {
   components: { GInput },
   data() {
     return {
       content: `
-<g-input></g-input>
 <g-input value="中文"></g-input>
 <g-input value="中文" disabled></g-input>
 <g-input value="中文" readonly></g-input>

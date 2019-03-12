@@ -1,10 +1,7 @@
 <template>
-  <div class="tabs-header">
+  <div class="tabs-header" ref="head">
     <slot></slot>
     <div class="line" ref="line"></div>
-    <div class="actions-wrapper">
-      <slot name="actions"></slot>
-    </div>
   </div>
 </template>
 
@@ -14,9 +11,10 @@ export default {
   inject: ["eventBus"],
   mounted() {
     this.eventBus.$on("update:selected", (item, vm) => {
-      var { width, height, top, left } = vm.$el.getBoundingClientRect();
+      var { width, left } = vm.$el.getBoundingClientRect();
+      let { left: left2 } = this.$refs.head.getBoundingClientRect();
       this.$refs.line.style.width = `${width}px`;
-      this.$refs.line.style.left = `${left}px`;
+      this.$refs.line.style.left = `${left - left2}px`;
     });
   }
 };
@@ -31,19 +29,12 @@ $tab-height: 40px;
   height: $tab-height;
   position: relative;
   display: flex;
-  > .actions-wrapper {
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1em;
-  }
-
   > .line {
     transition: all 400ms;
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid blue;
+    z-index: 1;
+    border-bottom: 2px solid #3498db;
   }
 }
 </style>

@@ -8,7 +8,7 @@
 import Vue from "vue";
 
 export default {
-  name:"guluTabs",
+  name: "guluTabs",
   props: {
     selected: {
       type: String,
@@ -39,11 +39,14 @@ export default {
         console.warn("tabs的子组件应该是tabs-head和tabs-body");
     }
     this.$children.forEach(vm => {
+
       if (vm.$options.name === "guluTabsHead") {
         vm.$children.forEach(childVm => {
+              console.log(childVm.$options.name)
           if (
             childVm.$options.name === "guluTabsItem" &&
             childVm.name === this.selected
+            
           ) {
             this.eventBus.$emit("update:selected", this.selected, childVm);
           }
@@ -55,6 +58,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 
