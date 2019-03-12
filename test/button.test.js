@@ -50,14 +50,14 @@ describe('Button', () => {
         vm.$el.remove()
         vm.$destroy()
     })
-    it('设置 iconPosition 可以改变 order', () => {
+    it('设置 iconposition 可以改变 order', () => {
         const div = document.createElement('div')
         document.body.appendChild(div)
         const Constructor = Vue.extend(Button)
         const vm = new Constructor({
             propsData: {
                 icon: 'settings',
-                iconPosition: 'right'
+                iconposition: 'right'
             }
         }).$mount(div)
         const icon = vm.$el.querySelector('svg')

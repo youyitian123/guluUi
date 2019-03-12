@@ -17,7 +17,8 @@ module.exports = {
                     '/components/button',
                     '/components/input',
                     '/components/tabs',
-                    '/components/toast'
+                    '/components/toast',
+                    '/components/collapse'
                 ]
             }
         ],

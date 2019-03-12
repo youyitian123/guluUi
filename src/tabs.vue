@@ -42,7 +42,6 @@ export default {
 
       if (vm.$options.name === "guluTabsHead") {
         vm.$children.forEach(childVm => {
-              console.log(childVm.$options.name)
           if (
             childVm.$options.name === "guluTabsItem" &&
             childVm.name === this.selected
