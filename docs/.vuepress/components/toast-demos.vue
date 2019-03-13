@@ -19,7 +19,6 @@
   </div>
 </template>
 
-
 <script>
 import Vue from "vue";
 import GTost from "../../../src/toast";
@@ -32,7 +31,6 @@ export default {
     return {
       content: `
 <button @click="showToast()">Toast</button>
-
 
 showToastTop() {
   this.$toast("我是 message", {

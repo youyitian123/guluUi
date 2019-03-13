@@ -16,7 +16,6 @@
   </div>
 </template>
 
-
 <script>
 import GCollapse from "../../../src/collapse";
 import collapseItem from "../../../src/collapse-item";

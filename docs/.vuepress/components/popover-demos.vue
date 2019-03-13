@@ -86,7 +86,6 @@
   </div>
 </template>
 
-
 <script>
 import GPopover from "../../../src/popover";
 export default {
@@ -96,10 +95,10 @@ export default {
       content: `
 <g-popover position="bottom" trigger="hover">
     <template slot="content">
-        <div>popover内容</div>
+      <div>popover内容</div>
     </template>
     <template>
-        <button>下弹出</button>
+      <button>下弹出</button>
     </template>
 </g-popover>`.replace(/^ {8}/gm, "").trim()
     };

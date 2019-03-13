@@ -65,7 +65,12 @@ export default {
     transform: rotate(360deg);
   }
 }
+
+button:disabled {
+  cursor: no-drop;
+}
 .g-button {
+  cursor: pointer;
   font-size: $font-size;
   height: $button-height;
   padding: 0 1em;

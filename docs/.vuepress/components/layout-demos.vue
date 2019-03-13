@@ -25,7 +25,6 @@
   </div>
 </template>
 
-
 <script>
 import GLayout from "../../../src/layout";
 import GHeader from "../../../src/header";
@@ -47,10 +46,11 @@ export default {
 <g-layout>
     <g-sider>sider</g-sider>
     <g-layout>
-        <g-header>header</g-header>
-        <g-content>content</g-content>
-        <g-footer>footer</g-footer>
+      <g-header>header</g-header>
+      <g-content>content</g-content>
+      <g-footer>footer</g-footer>
     </g-layout>
+</g-layout>
         `.replace(/^ {8}/gm, "").trim()
     };
   }
