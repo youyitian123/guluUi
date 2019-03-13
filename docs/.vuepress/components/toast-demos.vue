@@ -46,7 +46,7 @@ showToastTop() {
     }
   }
 });
-`
+`.replace(/^ {8}/gm, "").trim()
     };
   },
   methods: {

@@ -87,13 +87,13 @@ export default {
         :pc="{span:8}" :wide-pc="{span:8}">
     </g-col>
 </g-row>
-`
+`.replace(/^ {8}/gm, "").trim()
     };
   }
 };
 </script>
 
-<style>
+<style scoped>
 .demo {
   text-align: center;
   height: 30px;

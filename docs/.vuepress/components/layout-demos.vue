@@ -10,7 +10,6 @@
       <g-footer class="demo bg3">footer</g-footer>
     </g-layout>
     <p></p>
-
     <g-layout>
       <g-sider class="demo2 bg3">sider</g-sider>
       <g-layout>
@@ -19,7 +18,6 @@
         <g-footer class="demo bg3">footer</g-footer>
       </g-layout>
     </g-layout>
-
     <p>
       <strong>代码</strong>
     </p>
@@ -53,13 +51,13 @@ export default {
         <g-content>content</g-content>
         <g-footer>footer</g-footer>
     </g-layout>
-        `
+        `.replace(/^ {8}/gm, "").trim()
     };
   }
 };
 </script>
 
-<style>
+<style scoped>
 .demo {
   color: white;
   text-align: center;

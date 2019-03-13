@@ -37,7 +37,7 @@ data:{
     <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
     <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
 </g-collapse>
-`
+`.replace(/^ {8}/gm, "").trim()
     };
   }
 };

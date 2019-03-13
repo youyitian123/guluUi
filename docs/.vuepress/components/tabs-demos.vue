@@ -49,9 +49,7 @@ data:{
     <g-tabs-pane name="2">content 2</g-tabs-pane>
   </g-tabs-body>
 </g-tabs>
-	      `
-        .replace(/^ {8}/gm, "")
-        .trim()
+	      `.replace(/^ {8}/gm, "").trim()
     };
   }
 };

@@ -40,14 +40,12 @@ export default {
 <g-button type="info">信息按钮</g-button>
 <g-button type="warning">警告按钮</g-button>
 <g-button type="danger">危险按钮</g-button>
-	      `
-        .replace(/^ {8}/gm, "")
-        .trim()
+	      `.replace(/^ {8}/gm, "").trim()
     };
   }
 };
 </script> 
-	<style lang="scss">
+	<style lang="scss" scoped>
 .g-button-group {
   margin-top: 1em;
 }

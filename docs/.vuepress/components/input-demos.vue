@@ -27,9 +27,7 @@ export default {
 <g-input value="中文" disabled></g-input>
 <g-input value="中文" readonly></g-input>
 <g-input value="密码" error="密码错误"></g-input>
-	      `
-        .replace(/^ {8}/gm, "")
-        .trim()
+	      `.replace(/^ {8}/gm, "").trim()
     };
   }
 };
