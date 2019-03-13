@@ -1,9 +1,5 @@
 <template>
   <div>
-    <h2>简单用法</h2>
-    <p>
-      <strong>预览</strong>
-    </p>
     <g-layout>
       <g-header class="demo bg1">header</g-header>
       <g-content class="demo bg2">content</g-content>
@@ -18,10 +14,6 @@
         <g-footer class="demo bg3">footer</g-footer>
       </g-layout>
     </g-layout>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 
@@ -34,26 +26,6 @@ import GContent from "../../../src/content";
 
 export default {
   components: { GLayout, GHeader, GFooter, GSider, GContent },
-  data() {
-    return {
-      content: `
-<g-layout>
-    <g-header>header</g-header>
-    <g-content>content</g-content>
-    <g-footer>footer</g-footer>
-</g-layout>
-
-<g-layout>
-    <g-sider>sider</g-sider>
-    <g-layout>
-      <g-header>header</g-header>
-      <g-content>content</g-content>
-      <g-footer>footer</g-footer>
-    </g-layout>
-</g-layout>
-        `.replace(/^ {8}/gm, "").trim()
-    };
-  }
 };
 </script>
 

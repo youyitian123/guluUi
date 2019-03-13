@@ -5,11 +5,11 @@ title: 安装
 # 安装
 
 ```
-npm install frank-test-1 
+npm install youyitian-gulu
 ```
 
 or
 
 ```
-yarn add frank-test-1 
+yarn add youyitian-gulu
 ```

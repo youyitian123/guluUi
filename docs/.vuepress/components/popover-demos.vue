@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h2>简单用法</h2>
-    <p>
-      <strong>预览</strong>
-    </p>
+  <div style="padding-top: 20px">
     <p style="color:green;">click</p>
     <g-popover position="top">
       <template slot="content">
@@ -78,11 +74,6 @@
         <button>下弹出</button>
       </template>
     </g-popover>
-
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 
@@ -90,19 +81,6 @@
 import GPopover from "../../../src/popover";
 export default {
   components: { GPopover },
-  data() {
-    return {
-      content: `
-<g-popover position="bottom" trigger="hover">
-    <template slot="content">
-      <div>popover内容</div>
-    </template>
-    <template>
-      <button>下弹出</button>
-    </template>
-</g-popover>`.replace(/^ {8}/gm, "").trim()
-    };
-  }
 };
 </script>
 
