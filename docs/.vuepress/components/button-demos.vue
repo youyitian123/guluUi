@@ -31,7 +31,7 @@ export default {
     return {
       content: `
 <g-button>默认按钮</g-button>
-<g-button icon="setting" iconPosition="left">默认按钮</g-button>
+<g-button icon="setting" iconposition="left">默认按钮</g-button>
 <g-button :loading="true">默认按钮</g-button>
 <g-button disabled>默认按钮</g-button>
 

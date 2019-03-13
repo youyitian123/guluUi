@@ -39,10 +39,9 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 $height: 32px;
-$border-color: #999;
+$border-color: #dcdfe6;
 $border-color-hover: #666;
 $font-size: 12px;
 $box-shadow-color: rgba(0, 0, 0, 0.5);
@@ -55,6 +54,7 @@ $red: #f1453d;
     margin-right: 0.5em;
   }
   > input {
+    cursor: pointer;
     height: 32px;
     border: 1px solid $border-color;
     border-radius: 4px;

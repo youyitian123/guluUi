@@ -29,13 +29,36 @@
     body {
         font-size: var(--font-size);
     }
+
+        .demo {
+            color: white;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
 </style>
-
-
 
 <body>
     <div id="app">
-        <g-button icon="setting" iconposition="right">默认按钮</g-button>
+        <g-layout>
+            <g-header class="demo" style="background:#7dbcea;">header</g-header>
+            <g-content class="demo" style="background:rgba(16, 142, 233, 1);">content</g-content>
+            <g-footer class="demo" style="background:#7dbcea;">footer</g-footer>
+        </g-layout>
+
+        <p>
+            #
+        </p>
+
+        <g-layout>
+            <g-sider class="demo" style="background:#3ba0e9; width: 50px;">sider</g-sider>
+            <g-layout>
+                <g-header class="demo" style="background:#7dbcea; height: 50px; line-height: 50px;">header</g-header>
+                <g-content class="demo" style="background:rgba(16, 142, 233, 1);height: 50px; line-height: 50px;">
+                    content</g-content>
+                <g-footer class="demo" style="background:#7dbcea;height: 50px; line-height: 50px;">footer</g-footer>
+            </g-layout>
+        </g-layout>
     </div>
     <script src="./src/app.js"></script>
 
