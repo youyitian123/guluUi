@@ -32,7 +32,7 @@ $tab-height: 40px;
   > .line {
     transition: all 400ms;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     z-index: 1;
     border-bottom: 2px solid #3498db;
   }
