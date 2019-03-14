@@ -26,11 +26,11 @@ span :  < 577px
 
 ```html
 <g-row>
-    <g-col 
-      span="24 :ipad="{span:24}" :narrow-pc="{span:24}"
+   <g-col 
+      span="24" :ipad="{span:24}" :narrow-pc="{span:24}"
       :pc="{span:24}" :wide-pc="{span:24}">
     </g-col>
-    </g-row>
+</g-row>
 <g-row>
     <g-col 
       span="12" :ipad="{span:12}" :narrow-pc="{span:12}"
