@@ -11,7 +11,7 @@ title: Grid
 ## 文档
 
 :::tip
-span :
+span :  < 577px
 
 :ipad : 577px - 769px 的比例
  
